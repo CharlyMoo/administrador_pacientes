@@ -1,4 +1,8 @@
 <script setup>
+import {ref} from 'vue'
+
+// Tracks if the user has hovered over the date input 
+const hasHoveredAlta = ref(false);
 </script>
 
 <template>
@@ -62,7 +66,9 @@
                 <input 
                     id="alta"
                     type="date"
-                    class="border-2 w-full border-gray-400 p-2 mt-2 text-gray-400 rounded-md hover:text-black"
+                    @mouseenter ="hasHoveredAlta = true"
+                    class="border-2 w-full border-gray-400 p-2 mt-2 text-gray-400 rounded-md"
+                    :class="hasHoveredAlta ? 'text-black' : 'text-gray-400'"
                 />        
             </div>
             <div class="mb-5">
@@ -80,8 +86,10 @@
             </div>
             <input 
                 type="submit"
-                class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors" />
-        </form>
+                class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
+                value="Registrar Paciente"
+                />
+            </form>
     </div>
 </template>
 
